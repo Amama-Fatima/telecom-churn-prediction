@@ -1,0 +1,5 @@
+notebooks/catboost_info/
+.ipynb_checkpoints/
+notebooks/model_catboost
+data/
+Telco-Customer-Churn-dataset-cleaned.csv
