@@ -49,3 +49,6 @@ tzdata==2025.2
 urllib3==2.4.0
 watchdog==6.0.0
 wheel==0.45.1
+xgboost>=1.7.0
+catboost>=1.0.0
+lightgbm>=3.3.0
