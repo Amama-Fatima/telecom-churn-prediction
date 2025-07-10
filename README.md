@@ -19,10 +19,10 @@ The **eda.ipynb** notebook performs an in-depth **Exploratory Data Analysis (EDA
 
 # Demo
 
-[🔗 View the Streamlit App](https://telecom-churn-prediction-h6ytm56wue2faxds3uctux.streamlit.app/)
+[🔗 View the Streamlit App](https://telecom-churn-prediction-amama.streamlit.app/)
 
 
-# 📈 Model Performance (AUC-ROC)
+# 📈 Model Performance During Training (AUC-ROC)
 
 | Model                 | CV Mean AUC (± std)        | Test AUC |
 | --------------------- | -------------------------- | -------- |
@@ -36,7 +36,48 @@ The **eda.ipynb** notebook performs an in-depth **Exploratory Data Analysis (EDA
 
 
 
+# 🔎 Streamlit App Evaluation
 
+## 🟦 CatBoost
+
+
+- **Accuracy:** 81.23%
+- **Confusion Matrix:**
+
+
+|                | **Predicted No** | **Predicted Yes** |
+| -------------- | ---------------- | ----------------- |
+| **Actual No**  | 4697             | 477               |
+| **Actual Yes** | 845              | 1024              |
+
+
+
+## 🟨 XGBoost
+- **Accuracy:** 81.58%
+- **Confusion Matrix:**
+
+|                | Predicted No | Predicted Yes |
+|----------------|--------------|---------------|
+| **Actual No**  | 4,733        | 441           |
+| **Actual Yes** | 856          | 1,013         |
+
+## 🟩 LightGBM
+- **Accuracy:** 81.56%
+- **Confusion Matrix:**
+
+|                | Predicted No | Predicted Yes |
+|----------------|--------------|---------------|
+| **Actual No**  | 4,725        | 449           |
+| **Actual Yes** | 850          | 1,019         |
+
+## 🟩 Stacking Ensemble
+- **Accuracy:** 81.16%
+- **Confusion Matrix:**
+
+|                | Predicted No | Predicted Yes |
+|----------------|--------------|---------------|
+| **Actual No**  | 4,776        | 398           |
+| **Actual Yes** | 929          | 940           |
 
 
 # 📂 Dataset Description
