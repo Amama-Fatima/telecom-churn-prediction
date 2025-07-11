@@ -1,182 +1,195 @@
-# Telecom Churn Prediction
+---
 
-This repository contains code and models for predicting customer churn in the telecommunications industry.  The project utilizes various machine learning and statistical techniques to identify customers at risk of leaving, enabling proactive retention strategies.
+# 📞 Telecom Churn Prediction
 
-# Summary
+This repository contains code and models for predicting **customer churn** in the telecommunications industry.
+📊 The project uses machine learning and statistical techniques to identify customers at risk of leaving.
 
-The **eda.ipynb** notebook performs an in-depth **Exploratory Data Analysis (EDA)** on a telecom customer churn dataset to identify patterns, anomalies, and key factors influencing customer churn. The findings are:
+---
 
- * **Service Agreements:** Month‑to‑month customers churn more than those on annual/bi‑annual plans.
+# 🧠 Summary
 
- * **Tenure:** Newer customers show higher churn risk.
- 
- * **Charges:** Higher MonthlyCharges and abrupt increases signal churn.
- 
- * **Services:** Customers without multiple services (e.g., no internet or security add‑ons) are more likely to churn.
- 
- * **Payment Methods:** Electronic check users exhibit elevated churn rates.
+The **`eda.ipynb`** notebook performs an in-depth **Exploratory Data Analysis (EDA)** on a telecom churn dataset to uncover:
 
+* 📆 **Service Agreements:** Month-to-month customers churn more than those on annual/bi-annual plans
+* ⏳ **Tenure:** Newer customers show higher churn risk
+* 💸 **Charges:** High monthly charges and sudden increases are churn signals
+* 📡 **Services:** Fewer service add-ons (e.g., no internet/security) = higher churn
+* 💳 **Payment Methods:** Customers using *electronic checks* churn more frequently
 
-# Demo
+---
 
-[🔗 View the Streamlit App](https://telecom-churn-prediction-amama.streamlit.app/)
+# 🚀 Demo
 
+[▶️ **View the Streamlit App**](https://telecom-churn-prediction-amama.streamlit.app/)
+
+### ⚡ Quick Start:
+
+1. 🔹 Go to the **Demo Data** tab
+2. 🔹 Click **Run Prediction**
+3. 🔹 (Optional) Click **Evaluate Predictions**
+
+### 🧍 Manual Prediction:
+
+1. 🟢 Go to the **Manual Input** tab
+2. 🟢 Fill in customer details
+3. 🟢 Click **Predict Churn**
+
+### 📁 Upload Your Data:
+
+1. 📤 Go to the **Upload Data** tab
+2. 📤 Upload your CSV file
+3. 📤 (Optional) Upload true labels for evaluation
+
+---
 
 # 📈 Model Performance During Training (AUC-ROC)
 
-| Model                 | CV Mean AUC (± std)        | Test AUC |
-| --------------------- | -------------------------- | -------- |
-| **CatBoost**          | 0.8511 ± 0.0146            | 0.8472   |
-| **CatBoost (tuned)**  | (best trial only) — 0.8385 | —        |
-| **XGBoost**           | 0.8503 ± 0.0147            | 0.8481   |
-| **XGBoost (tuned)**   | (best trial only) — 0.8407 | —        |
-| **LightGBM**          | 0.8482 ± 0.0154            | 0.8506   |
-| **LightGBM (tuned)**  | (best trial only) — 0.8383 | —        |
-| **Stacking Ensemble** | —                          | 0.8491   |
+| ⚙️ Model                 | 🎯 CV Mean AUC (± std) | 🧪 Test AUC |
+| ------------------------ | ---------------------- | ----------- |
+| 🐱 **CatBoost**          | 0.8511 ± 0.0146        | 0.8472      |
+| 🐱 **CatBoost (tuned)**  | (best trial) — 0.8385  | —           |
+| ⚔️ **XGBoost**           | 0.8503 ± 0.0147        | 0.8481      |
+| ⚔️ **XGBoost (tuned)**   | (best trial) — 0.8407  | —           |
+| 💡 **LightGBM**          | 0.8482 ± 0.0154        | 0.8506      |
+| 💡 **LightGBM (tuned)**  | (best trial) — 0.8383  | —           |
+| 🧠 **Stacking Ensemble** | —                      | 0.8491      |
 
+---
 
-
-# 🔎 Streamlit App Evaluation
+# 📊 Streamlit App Evaluation
 
 ## 🟦 CatBoost
 
-
-- **Accuracy:** 81.23%
-- **Confusion Matrix:**
-
+* ✅ **Accuracy:** 81.23%
+* 🔢 **Confusion Matrix:**
 
 |                | **Predicted No** | **Predicted Yes** |
 | -------------- | ---------------- | ----------------- |
-| **Actual No**  | 4697             | 477               |
-| **Actual Yes** | 845              | 1024              |
+| **Actual No**  | 4,697            | 477               |
+| **Actual Yes** | 845              | 1,024             |
 
-
+---
 
 ## 🟨 XGBoost
-- **Accuracy:** 81.58%
-- **Confusion Matrix:**
+
+* ✅ **Accuracy:** 81.58%
+* 🔢 **Confusion Matrix:**
 
 |                | Predicted No | Predicted Yes |
-|----------------|--------------|---------------|
+| -------------- | ------------ | ------------- |
 | **Actual No**  | 4,733        | 441           |
 | **Actual Yes** | 856          | 1,013         |
 
+---
+
 ## 🟩 LightGBM
-- **Accuracy:** 81.56%
-- **Confusion Matrix:**
+
+* ✅ **Accuracy:** 81.56%
+* 🔢 **Confusion Matrix:**
 
 |                | Predicted No | Predicted Yes |
-|----------------|--------------|---------------|
+| -------------- | ------------ | ------------- |
 | **Actual No**  | 4,725        | 449           |
 | **Actual Yes** | 850          | 1,019         |
 
+---
+
 ## 🟩 Stacking Ensemble
-- **Accuracy:** 81.16%
-- **Confusion Matrix:**
+
+* ✅ **Accuracy:** 81.16%
+* 🔢 **Confusion Matrix:**
 
 |                | Predicted No | Predicted Yes |
-|----------------|--------------|---------------|
+| -------------- | ------------ | ------------- |
 | **Actual No**  | 4,776        | 398           |
 | **Actual Yes** | 929          | 940           |
 
+---
 
 # 📂 Dataset Description
-The dataset consists of information about 7,043 telecom customers, each represented by 21 features. It captures demographic information, account details, service usage patterns, and whether or not the customer has churned (i.e., left the company).
 
-## Feature Overview
+This dataset includes **7,043 telecom customers** with 21 features: demographics, service usage, account info, and churn status.
 
-| Column             | Description                                                              |
-| ------------------ | ------------------------------------------------------------------------ |
-| `customerID`       | Unique customer identifier                                               |
-| `gender`           | Customer's gender: Male or Female                                        |
-| `SeniorCitizen`    | Indicates if the customer is a senior citizen (1 = Yes, 0 = No)          |
-| `Partner`          | Whether the customer has a partner                                       |
-| `Dependents`       | Whether the customer has dependents                                      |
-| `tenure`           | Number of months the customer has stayed with the company                |
-| `PhoneService`     | Indicates if the customer has a phone service                            |
-| `MultipleLines`    | Whether the customer has multiple lines                                  |
-| `InternetService`  | Type of internet service: DSL, Fiber optic, or None                      |
-| `OnlineSecurity`   | Whether the customer has online security add-on                          |
-| `OnlineBackup`     | Whether the customer has online backup add-on                            |
-| `DeviceProtection` | Whether the customer has device protection add-on                        |
-| `TechSupport`      | Whether the customer has tech support add-on                             |
-| `StreamingTV`      | Whether the customer has streaming TV                                    |
-| `StreamingMovies`  | Whether the customer has streaming movies                                |
-| `Contract`         | Type of contract: Month-to-month, One year, or Two year                  |
-| `PaperlessBilling` | Whether billing is paperless                                             |
-| `PaymentMethod`    | Customer’s payment method (e.g., Electronic check, Bank transfer)        |
-| `MonthlyCharges`   | The amount charged to the customer monthly                               |
-| `TotalCharges`     | The total amount charged to the customer (as a string; needs conversion) |
-| `Churn`            | Whether the customer churned (Yes or No)                                 |
+## 🧾 Feature Overview
 
+| 🏷️ Column         | 📝 Description                                     |
+| ------------------ | -------------------------------------------------- |
+| `customerID`       | Unique customer ID                                 |
+| `gender`           | Gender: Male or Female                             |
+| `SeniorCitizen`    | 1 = Senior citizen, 0 = Not                        |
+| `Partner`          | Whether the customer has a partner                 |
+| `Dependents`       | Whether the customer has dependents                |
+| `tenure`           | Months with the company                            |
+| `PhoneService`     | Phone service subscription                         |
+| `MultipleLines`    | Has multiple phone lines                           |
+| `InternetService`  | DSL, Fiber optic, or None                          |
+| `OnlineSecurity`   | Has online security add-on                         |
+| `OnlineBackup`     | Has online backup add-on                           |
+| `DeviceProtection` | Has device protection add-on                       |
+| `TechSupport`      | Has technical support add-on                       |
+| `StreamingTV`      | Has streaming TV                                   |
+| `StreamingMovies`  | Has streaming movies                               |
+| `Contract`         | Contract type: Month-to-month, One year, Two year  |
+| `PaperlessBilling` | Uses paperless billing                             |
+| `PaymentMethod`    | Payment type (e.g., Electronic check)              |
+| `MonthlyCharges`   | Monthly bill amount                                |
+| `TotalCharges`     | Total charged amount (as string; needs conversion) |
+| `Churn`            | Whether customer churned: Yes or No                |
 
+---
 
+# 🔍 Exploratory Data Analysis
 
+## 1️⃣ Descriptive Analysis
 
-# Exploratory Data Analysis
+* 📦 Categorical feature review
+* ❌ Duplicate detection
+* 🔍 Unique value profiling
 
-## 1. Descriptive Analaysis
+## 2️⃣ Data Wrangling
 
-  * Analysis of categorical features
-  * Handling duplicates
-  * Analysis of unique values
+* 🧼 Handle missing values
+* 🧱 Feature binning
 
-## 2. Data Wrangling
+## 3️⃣ Univariate Analysis
 
-  * Handling missing values
-  * Feature Binning
+* 🧪 Normality tests
 
-## 3. Univariate Analysis
+  * D’Agostino-Pearson
+  * Anderson-Darling
+* 📊 Individual visualizations
 
-  * Statistical Normality Test
-      * D'Agostino-Pearson Test
-      * Anderson-Darling Test
-  * Individual visualization of features
+## 4️⃣ Bivariate Analysis
 
+* 🔗 Correlations:
 
-## 4. Bivariate Analysis
+  * 📉 Numerical vs Numerical (Spearman)
+  * 📋 Categorical vs Numerical (Kendall’s Tau, Mann-Whitney U)
+  * 🔘 Dichotomous (Phi Coefficient)
+  * 🔀 Categorical vs Categorical (Chi-Square, Cramér’s V, Uncertainty Coefficient)
+* 🔄 Collinearity Checks
+* 🖼️ Feature Pair Visualizations
 
-  * Numerical & Numerical Correlations
-      * Spearman rank-order correlation
-  * Numerical & Categorical Correlations
-      * Kendall's Tau
-      * Mann-Whitney U Test
-      * Polytomous with Numeric
-  * Dichotomous Correlations
-      * Phi's Correlation
-      * 
-  * Categorical & Categorical Correlations
-      * Chi-Sqaure For Independece
-      * Cramer's V
-      * Uncertainty Coefficient
-  * Collinearity
-  * Visualization of features in groups of two
+## 6️⃣ Multivariate Analysis
 
-## 6. Multivariate Analysis
+* 🧠 Multicollinearity
+* 📊 Frequency Distribution
 
-  * Multicollinearity
-  * Frequency Distribution
+## 7️⃣ Feature Engineering
 
-## 7. Feature Engineering
+* 🔥 One-Hot Encoding
 
-  * Hot encoding
-    
-## 8. Data Preparation
+## 8️⃣ Data Preparation
 
-  * Train and test data split
-  * Encoding and Scaling
+* ✂️ Train-Test Split
+* 🧮 Encoding + Scaling
 
-## 9. Training of Models
+## 9️⃣ Model Training
 
-  * Catboost training
-  * XGBoost training
-  * LGBM training
-  * Stack Ensemble training
+* 🐱 CatBoost
+* ⚔️ XGBoost
+* 💡 LightGBM
+* 🧠 Stacking Ensemble
 
-
-
-
-
-
-
-
+---
