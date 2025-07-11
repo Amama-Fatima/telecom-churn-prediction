@@ -8,7 +8,7 @@ def upload_tab(models, model_key):
     st.header("Upload Your Data")
     
 
-    uploaded_file = st.file_uploader("Upload customer data (CSV)", type="csv")
+    uploaded_file = st.file_uploader("Upload customer data (CSV) - Data with no labels that needs predictions", type="csv")
     
 
     eval_mode = st.checkbox("Enable evaluation mode (provide true labels)")

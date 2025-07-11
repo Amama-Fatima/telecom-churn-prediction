@@ -67,7 +67,21 @@ def create_manual_input_form():
                 'MonthlyCharges': [monthly_charges],
                 'TotalCharges': [total_charges]
             })
-            
+
+            # Add binned columns
+            def create_bins(value, low_threshold, high_threshold):
+                if value <= low_threshold:
+                    return 'Low'
+                elif value <= high_threshold:
+                    return 'Medium'
+                else:
+                    return 'High'
+
+            # Add the binned columns (you'll need to determine appropriate thresholds)
+            input_data['tenure-binned'] = input_data['tenure'].apply(lambda x: create_bins(x, 12, 36))
+            input_data['MonthlyCharges-binned'] = input_data['MonthlyCharges'].apply(lambda x: create_bins(x, 40, 70))
+            input_data['TotalCharges-binned'] = input_data['TotalCharges'].apply(lambda x: create_bins(x, 500, 2000))
+                        
             return input_data
     
     return None

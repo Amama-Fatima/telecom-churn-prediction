@@ -6,7 +6,7 @@ from utils.data_processor import load_demo_data, process_predictions
 def demo_data_tab(models, model_key):
     """Handle demo data functionality"""
     st.header("Demo Data")
-    st.write("Try the app with sample datasets from our repository")
+    st.write("Try the app with sample datasets from the github repository")
     
     demo_data = load_demo_data()
     
@@ -24,7 +24,7 @@ def demo_data_tab(models, model_key):
         col1, col2 = st.columns(2)
         
         with col1:
-            st.subheader("🔍 Test Dataset (For Prediction)")
+            st.subheader("🔍 Test Dataset (For Prediction - No Labels)")
             st.write("*This dataset contains customer features without churn labels*")
             
             subcol1, subcol2 = st.columns(2)
@@ -50,9 +50,6 @@ def demo_data_tab(models, model_key):
             with subcol2:
                 st.metric("Columns", eval_data.shape[1])
             
-            if 'Churn' in eval_data.columns:
-                churn_rate = eval_data['Churn'].value_counts().get('Yes', 0) / len(eval_data)
-                st.metric("Churn Rate", f"{churn_rate:.1%}")
             
             st.write("**Sample Data:**")
             st.dataframe(eval_data.head(5))
